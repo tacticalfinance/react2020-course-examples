@@ -2,10 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function TimeParser(props) {
-  // You don't really need 3 state variables here do you?
   const [seconds, setSeconds] = useState(3600);
-  const [minutes, setMinutes] = useState(60);
-  const [hours, setHours] = useState(1);
 
   const style = {
     display: 'block',
@@ -16,10 +13,7 @@ export default function TimeParser(props) {
   }
 
   function onTimeChanged(e, factor) {
-    const seconds = Number(e.target.value) * factor;
-    setSeconds(seconds);
-    setMinutes(floor(seconds / 60));
-    setHours(floor(seconds / 3600));
+    setSeconds(Number(e.target.value) * factor);
   }
 
   return (
@@ -31,12 +25,12 @@ export default function TimeParser(props) {
 
       <label>
         Minuts
-        <input type="text" style={style} value={minutes} onChange={(e) => onTimeChanged(e, 60)} />
+        <input type="text" style={style} value={floor(seconds / 60)} onChange={(e) => onTimeChanged(e, 60)} />
       </label>
 
       <label>
         Hours
-        <input type="text" style={style} value={hours} onChange={(e) => onTimeChanged(e, 3600)} />
+        <input type="text" style={style} value={floor(seconds / 3600)} onChange={(e) => onTimeChanged(e, 3600)} />
       </label>
     </>
   );
