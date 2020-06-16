@@ -15,6 +15,11 @@ export default function GuessTheNumber(props) {
     margin: '10px 0px',
   }
 
+  // A good best practice is to always return the same result
+  // from render()
+  // this means it'll be cleaner to store shouldICheat value in a
+  // state variable, and every time the number changes you can
+  // randomize a new value for it
   function shouldICheat() {
     return _.random(1, 10) >= 9;
   }

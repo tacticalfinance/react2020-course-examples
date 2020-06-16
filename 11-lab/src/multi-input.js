@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import _ from 'lodash';
 
 export default function MultiInput(props) {
   const [syncData, setSyncData] = useState('type something...');
@@ -13,13 +14,15 @@ export default function MultiInput(props) {
     setSyncData(e.target.value);
   }
 
+  // We can use a loop to make the code a bit cleaner
+  // (If you don't want to use lodash you can use the following
+  // for native JS:
+  // new Array(10).fill('').map(x => ... );
   return (
     <>
-      <input type="text" style={style} value={syncData} onChange={onTextChanged} />
-      <input type="text" style={style} value={syncData} onChange={onTextChanged} />
-      <input type="text" style={style} value={syncData} onChange={onTextChanged} />
-      <input type="text" style={style} value={syncData} onChange={onTextChanged} />
-      <input type="text" style={style} value={syncData} onChange={onTextChanged} />
+      {_.range(10).map(x =>
+        <input type="text" style={style} value={syncData} onChange={onTextChanged} />
+      )}
     </>
   );
 }
