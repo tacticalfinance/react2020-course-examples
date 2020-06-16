@@ -20,9 +20,9 @@ export default function MultiInput(props) {
   // new Array(10).fill('').map(x => ... );
   return (
     <>
-      {_.range(10).map(x =>
-        <input type="text" style={style} value={syncData} onChange={onTextChanged} />
-      )}
+      {
+        _.range(5).map(x => <input key={x} type="text" style={style} value={syncData} onChange={onTextChanged} />)
+      }
     </>
   );
 }
