@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function TimeParser(props) {
+  // You don't really need 3 state variables here do you?
   const [seconds, setSeconds] = useState(3600);
   const [minutes, setMinutes] = useState(60);
   const [hours, setHours] = useState(1);
