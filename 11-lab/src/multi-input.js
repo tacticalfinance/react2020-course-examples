@@ -14,14 +14,13 @@ export default function MultiInput(props) {
     setSyncData(e.target.value);
   }
 
-  // We can use a loop to make the code a bit cleaner
-  // (If you don't want to use lodash you can use the following
-  // for native JS:
-  // new Array(10).fill('').map(x => ... );
   return (
     <>
+      {/* {
+        new Array(2).fill('').map(x => <input key={x} type="text" style={style} value={syncData} onChange={onTextChanged} />)
+      } */}
       {
-        _.range(5).map(x => <input key={x} type="text" style={style} value={syncData} onChange={onTextChanged} />)
+        _.range(2).map(x => <input key={x} type="text" style={style} value={syncData} onChange={onTextChanged} />)
       }
     </>
   );
